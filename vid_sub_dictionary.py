@@ -7,8 +7,6 @@ Given a list of the video files, finds the best subtitle match for it
 in the given folder, forms a dictionary of video-subtitle pair
 """
 
-list_sub_formats = ['srt', 'sub', 'txt']
-
 
 
 def take_video_list ():
@@ -37,10 +35,16 @@ def match_subs (listvids):
     Takes as input the list of all videos, matches the relevant subtitle to
     it, displaying the video and the match in the end for the user to approve
   """
-  for video in listvids:
+  list_sub_formats = ['srt', 'sub', 'txt']
+  table = {}
+  for video_name_ext in listvids:
+    video_name = video_name_ext [:video_name_ext.find ('.')]
+    words_video = re.findall (r'[a-zA-Z0-9]+', video_name)
     
+    for word_video in words_video:
+      
   
-  
+   
 
   return
 
