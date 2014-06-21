@@ -1,11 +1,13 @@
-import glob
-import os
-import re
-
 """
 Given a list of the video files, finds the best subtitle match for it
 in the given folder, forms a dictionary of video-subtitle pair
 """
+
+
+import glob
+import os
+import re
+import word_frequency_dictionary
 
 
 
@@ -35,16 +37,7 @@ def match_subs (listvids):
     Takes as input the list of all videos, matches the relevant subtitle to
     it, displaying the video and the match in the end for the user to approve
   """
-  list_sub_formats = ['srt', 'sub', 'txt']
-  table = {}
-  for video_name_ext in listvids:
-    video_name = video_name_ext [:video_name_ext.find ('.')]
-    words_video = re.findall (r'[a-zA-Z0-9]+', video_name)
-    
-    for word_video in words_video:
-      
-  
-   
+  word_freq_dict = word_frequency_dictionary.create_freq_dictionary (listvids)
 
   return
 
