@@ -8,6 +8,7 @@ import glob
 import os
 import re
 import word_frequency_dictionary
+import change_sub_name
 
 
 
@@ -32,7 +33,7 @@ def take_video_list ():
   return
 
 
-def match_subs (listvids, exclusionlist, iteration:)
+def match_subs (listvids, exclusionlist, iteration):
   """
     Takes as input the list of all videos, matches the relevant subtitle to
     it, displaying the video and the match in the end for the user to approve
@@ -86,10 +87,11 @@ def match_subs (listvids, exclusionlist, iteration:)
   
 
   
-  for video, sub in video_sub_dict.items ():
-    print ('\n' + video + ' => ' + sub)
-    #call program to change sub names
-    
+#  for video, sub in video_sub_dict.items ():
+    #print ('\n' + video + ' ==> ' + sub)
+
+  #call program to change sub names
+  change_sub_name.change_subname_tovideo (video_sub_dict)
   
   exclusionlist += video_sub_dict.values ()
   match_subs (sub_not_found, exclusionlist, iteration + 1)
